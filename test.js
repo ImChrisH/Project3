@@ -46,13 +46,13 @@ function guessing(){
             guess.value='';
         }
 
-        else if(guess.value>100){
-            msg.textContent= "Only numbers from 1 to 100!";
-        }
+        // else if(guess.value>100){
+        //     msg.textContent= "Only numbers from 1 to 100!";
+        // }
 
-        else if(guess.value <1){
-            msg.textContent= "Only numbers from 1 to 100!";
-        }
+        // else if(guess.value <1){
+        //     msg.textContent= "Only numbers from 1 to 100!";
+        // }
 
         if(counter<=0){
             msg.textContent="GAME OVER";
