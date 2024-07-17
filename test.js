@@ -1,4 +1,4 @@
-console.log("hi");
+// console.log("hi");
 
 let counter=10;
 let highscore=0;
@@ -7,33 +7,37 @@ let msg=document.querySelector('.msg');
 let guess=document.querySelector('.guess');
 let gBtn=document.querySelector('.gBtn');
 let currentcounter=document.querySelector('.counter');
-let imageshown= "gameover.jpg";
+// let imageshown= "gameover.jpg";
 let hScore=document.querySelector('.hScore');
 
 
 // Previous guess testing
-let prevGuesses=document.querySelector('.prevGuessA');
-let prevGuessArray=[];
+// let prevGuessA=document.querySelector('.prevGuessA');
+// let prevGuessArray=new Array[0];
 
 gBtn.addEventListener('click', guessing);
 
 function guessing(){
-        if(guess.value>num){
-            msg.textContent= "Wrong! Too High!";
-            guess.value=''
+        if(guess.value > num){
             counter=counter-1;
-            counter.textContent=String(counter);
+            currentcounter.textContent=String(counter);
+            msg.textContent= "Wrong! Too High!";
+            // prevGuessArray.push(guess.value);
+            // guess.value=''
+            
+           
         
     }
         else if (guess.value < num){
+            counter=counter-1;
+            currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too Low!";
             msg.style.color='red';
             msg.style.fontWeight='bold'; 
-            prevGuessArray.push(guess.value);
-            counter=counter-1;
-            currentcounter.textContent=String(counter);
+            // prevGuessArray.push(guess.value);
+            // previousGuessA.textContent=String(previousGuessArray);
             
-        
+           
         }
 
         else if (guess.value==num){
@@ -42,8 +46,8 @@ function guessing(){
             highscore=highscore+1;
             hScore.textContent=String(highscore);
 
-            prevGuessArray.push(guess.value);
-            guess.value='';
+            // prevGuessArray.push(guess.value);
+            // guess.value='';
         }
 
         // else if(guess.value>100){
