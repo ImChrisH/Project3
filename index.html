@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+    <div class="h1box">
+        <h1>Number guessing game!</h1>
+    </div>
+    <br>
+
+    <p id="caption">Guess a number from 1 through 100. You have 10 chances to guess. 
+        <br>
+        You'll be notified if you were too high or too low.</p>
+<br>
+
+<div class="container">
+<br>
+    <div class="progress">
+    <p> Current HP:<span class="counter">10</span></p>
+    <p>High Score:<span class="hScore">0</span></p>
+    </div>
+    <br>
+    
+    <div class="gamebox">
+        <div class="guessarea">
+                <input class="guess" type="text" name="guessme" placeholder="Input guess # here">
+                <br>
+                <br>
+                <button class="gBtn" name="checkresults">Guess</button>
+            
+            <br>
+            <h6 class="msg">Ready</h6>
+        </div>
+        
+    </div>
+    <br>
+
+    <div class="pGuess">
+        <p>Previous Guesses:</p>
+        <br>
+        <!-- Put previous guesses in JS below this line -->
+        <p class="previousGuessA"></p>
+
+
+    </div>
+</div>
+    <div class="resetme">
+        <button class="resetbtn">Reset</button>
+    </div>
+    
+    <script src="test.js"></script>
+</body>
+</html>
