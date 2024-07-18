@@ -18,6 +18,11 @@ let hScore=document.querySelector('.hScore');
 gBtn.addEventListener('click', guessing);
 
 function guessing(){
+        if(guess.value>100 || guess.value<1){
+            msg.textContent= "Only numbers from 1 to 100!";
+            return;
+            // need 'return;' statement since directly accessing info.
+        }
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
@@ -25,7 +30,6 @@ function guessing(){
             // prevGuessArray.push(guess.value);
             // guess.value=''
             
-           
         
     }
         else if (guess.value < num){
@@ -50,7 +54,7 @@ function guessing(){
             // guess.value='';
         }
 
-        // else if(guess.value>100){
+        // else if(guess.value>100 || guess.value<1){
         //     msg.textContent= "Only numbers from 1 to 100!";
         // }
 
