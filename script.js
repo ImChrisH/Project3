@@ -12,6 +12,7 @@ let currentcounter=document.querySelector('.counter');
 let hScore=document.querySelector('.hScore');
 let gHist=document.querySelector('.gHist');
 let gHistArray=[];
+let scorearray=[];
 // let background=document.querySelector('.bodymod');
 
 // Images
