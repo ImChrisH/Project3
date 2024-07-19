@@ -48,7 +48,7 @@ function guessing(){
             counter=counter-1;
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too High!";
-        
+            msg.style.color='red';
         }
 
         else if (guess.value < num){
@@ -63,7 +63,7 @@ function guessing(){
         // Correct Guess Input:
 
         else if (guess.value==num){
-            msg.textContent= "Congratulations, you guessed correctly!";
+            // msg.textContent= "Congratulations, you guessed correctly!";
             gBtn.hidden = true;
             guess.hidden=true;
             highscore=highscore+1;
@@ -71,6 +71,11 @@ function guessing(){
             cBtn.hidden=false;
             winner.hidden=false;
             thinking.hidden=true;
+            msg.textContent = `Congratulations!
+            Your guess was correct: ${guess.value} is my secret number`;
+            msg.style.color='gold';
+            document.body.style.backgroundImage="url(images/background/trophy.jpg)";
+
         }
 
 
@@ -106,7 +111,9 @@ cBtn.addEventListener('click', continuing);
             winner.hidden=true;
             thinking.hidden=false;
             gameover.hidden=true;
-
+            msg.textContent='Ready';
+            msg.style.color="";
+            document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
         }
 
 
@@ -129,7 +136,7 @@ rBtn.addEventListener('click', resetting)
             gHistArray.length=0;
             msg.hidden=false;
             msg.textContent= "Ready";
-            msg.style.color="blue";
+            msg.style.color="";
             document.body.style.filter="invert(0%)";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
         }

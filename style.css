@@ -8,6 +8,14 @@ body{
 
 p {text-align: center;}
 
+.msg{
+    color:rgb(0, 0, 0);
+    font-size: 18px;
+    /* margin-bottom: 1px; */
+    margin-top:4px;
+    height: 30px;
+}
+
 .h1box{
     display:flex;
     padding: 1%;
@@ -54,7 +62,7 @@ p {text-align: center;}
     width:50%;
     margin-top: 15%;
     margin:auto;
-    border-radius: 300px;
+    border-radius: 100px;
     border:3px outset aliceblue;
 
 }
@@ -65,6 +73,7 @@ p {text-align: center;}
 
 .guessarea{
     text-align: center;
+    padding:2%;
 }
 
 .guess{
