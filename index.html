@@ -11,9 +11,10 @@
 <style>
     body {background-image:url(./images/background/numbersdrawing.jpg);
 
-
 }
+
 </style>
+
 <body class="body">
     
     
@@ -25,25 +26,38 @@
     <p id="caption">Guess a number from 1 through 100. You have 10 chances to guess. 
         <br>
         You'll be notified if you were too high or too low.</p>
-<br>
+    <br>
+
+
+
+<!-- Super Container/Wrapper: -->
 
 <div class="container">
+
 <br>
+
+<!-- HP & High Score Box -->
+
     <div class="progress">
     <p> Current HP:<span class="counter">10</span></p>
     <p>High Score:<span class="hScore">0</span></p>
     </div>
     <br>
     
+<!-- Container for all main divs: -->
+
     <div class="gamebox">
         <img class="gameover" src="images/icons/gameover.png" height="300px">
         <img class="winner" src="images/icons/winner.png" height="100px" >
         <img class="thinking" src="images/icons/thinking.png" height="100px">
         <div class="guessarea">
-                <input class="guess" type="number" name="guessme" placeholder="Input guess # here">
+                <input class="guess" type="number" name="guessme" placeholder="Guess here">
                 
                 <br>
                 <br>
+
+<!-- Guess and Continue Buttons: -->
+
                 <button class="gBtn" name="checkresults">Guess</button>
                 <button class="cBtn" name="continue">Continue</button>
             <br>
@@ -54,18 +68,21 @@
     </div>
     <br>
 
+<!-- Guess History: -->
+
+
     <div class="pGuess">
-        <p>Previous Guesses:</p>
-        <br>
+        <p id="pGuessTitle">Previous Guesses:</p>
         <!-- Put previous guesses in JS below this line -->
         <p class="gHist"></p>
 
 
     </div>
 </div>
-    <div class="resetme">
+
+<div class="resetme">
         <button class="rBtn">Reset</button>
-    </div>
+</div>
     
     <script src="script.js"></script>
 </body>

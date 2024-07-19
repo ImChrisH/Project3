@@ -24,46 +24,43 @@ let gBtn=document.querySelector('.gBtn');
 let rBtn=document.querySelector('.rBtn');
 
 
+// Default Visual States for the buttons:
 
 cBtn.hidden=true;
 winner.hidden=true;
 gameover.hidden=true;
 
 
-
+//Guess Button
 gBtn.addEventListener('click', guessing);
 
 function guessing(){
+
+        // Negates input less than 0 and greater than 100:
 
         if(guess.value>100 || guess.value<1){
             msg.textContent= "Only numbers from 1 to 100!";
             return;
             // needed 'return;' statement since directly accessing info.
         }
-        // if(Number.isInteger(guess.value)=false){
-
-        //     msg.textContent="Only numbers from 1 to 100!"
-        //     return;
-        // }
 
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too High!";
-           
-            
         
         }
+
         else if (guess.value < num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too Low!";
             msg.style.color='red';
             msg.style.fontWeight='bold'; 
-            
-            
-           
         }
+
+
+        // Correct Guess Input:
 
         else if (guess.value==num){
             msg.textContent= "Congratulations, you guessed correctly!";
@@ -74,32 +71,31 @@ function guessing(){
             cBtn.hidden=false;
             winner.hidden=false;
             thinking.hidden=true;
-
         }
 
-        if(counter<=0){
 
-            // msg.textContent="Please try again!";
-            // msg.style.fontSize="x-large";
-            // gBtn.disabled = true;
+        // Counter:
+
+        if(counter<=0){
             thinking.hidden=true;
             guess.hidden=true;
             gBtn.hidden=true;
             gameover.hidden=false;
             document.body.style.filter="invert(100%)";
-            // document.bodyback.style.filter="invert(100%)";
+            // document.getElementsByClassName("container").style.filter="invert(100%)";
             msg.hidden=true;
-            // changeBackgroundImage(URL/)
-
         }
 
-        // Array must be after conditionals!
+        // Array must be after conditionals:
 
         gHistArray.push(guess.value);
         gHist.textContent=gHistArray.join(', ');
         console.log(gHistArray);
     }        
        
+
+// Continue Button:
+
 cBtn.addEventListener('click', continuing);        
         function continuing(){
             cBtn.hidden=true;
@@ -112,6 +108,9 @@ cBtn.addEventListener('click', continuing);
             gameover.hidden=true;
 
         }
+
+
+// Reset Button:
 
 rBtn.addEventListener('click', resetting)
         function resetting(){
@@ -132,6 +131,7 @@ rBtn.addEventListener('click', resetting)
             msg.textContent= "Ready";
             msg.style.color="blue";
             document.body.style.filter="invert(0%)";
+            // document.getElementsByClassName(container).style.filter="invert(0%)";
             // document.bodyback.style.filter="invert(0)";
         }
 
