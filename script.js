@@ -12,6 +12,7 @@ let currentcounter=document.querySelector('.counter');
 let hScore=document.querySelector('.hScore');
 let gHist=document.querySelector('.gHist');
 let gHistArray=[];
+// let background=document.querySelector('.bodymod');
 
 // Images
 let winner=document.querySelector('.winner');
@@ -29,7 +30,6 @@ let rBtn=document.querySelector('.rBtn');
 cBtn.hidden=true;
 winner.hidden=true;
 gameover.hidden=true;
-
 
 //Guess Button
 gBtn.addEventListener('click', guessing);
@@ -74,7 +74,7 @@ function guessing(){
         }
 
 
-        // Counter:
+        // Counter and Game Over:
 
         if(counter<=0){
             thinking.hidden=true;
@@ -82,8 +82,8 @@ function guessing(){
             gBtn.hidden=true;
             gameover.hidden=false;
             document.body.style.filter="invert(100%)";
-            // document.getElementsByClassName("container").style.filter="invert(100%)";
             msg.hidden=true;
+            document.body.style.backgroundImage="url(images/background/glitch.jpg)";
         }
 
         // Array must be after conditionals:
@@ -131,8 +131,7 @@ rBtn.addEventListener('click', resetting)
             msg.textContent= "Ready";
             msg.style.color="blue";
             document.body.style.filter="invert(0%)";
-            // document.getElementsByClassName(container).style.filter="invert(0%)";
-            // document.bodyback.style.filter="invert(0)";
+            document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
         }
 
 

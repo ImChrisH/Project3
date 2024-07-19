@@ -2,7 +2,7 @@ body{
     background-color: rgba(129, 129, 129, 0.438);
     font-family: 'Calibri', sans-serif;
     font-size:22px;
-    /* background-image: url(./images/numbersdrawing.jpg); */
+    /* background-image: url(./images/background/numbersdrawing.jpg); */
     background-size: 100%;
 }
 
@@ -38,11 +38,11 @@ p {text-align: center;}
 }
 
 .container{
-    background-color: rgba(0, 0, 128, 0.484);
+    background-color: rgba(0, 0, 128, 0.504);
     width:40%;
     margin:auto;
     border:4px outset white;
-    border-radius: 30px;
+    border-radius: 700px;
 }
 
 .gamebox{
@@ -54,7 +54,7 @@ p {text-align: center;}
     width:50%;
     margin-top: 15%;
     margin:auto;
-    border-radius: 30px;
+    border-radius: 300px;
     border:3px outset aliceblue;
 
 }
@@ -69,6 +69,7 @@ p {text-align: center;}
 
 .guess{
     text-align: center;
+    width:40%;
     border-radius: 30px;
     height:30px;
     background-color: wheat;
@@ -86,7 +87,7 @@ p {text-align: center;}
     width: 30%;
     height: auto;
     margin:auto;
-    border-radius: 30px;
+    border-radius: 100px;
     border:3px inset red;
     color:rgb(255, 200, 132);
     text-shadow: 1px 1px black;
@@ -111,7 +112,7 @@ p {text-align: center;}
     margin: auto;
     color:rgba(210, 254, 80, 0.945);
     text-shadow: 1.3px 1.3px black;
-    border-radius: 20px;
+    border-radius: 100px;
     border:3px inset rgba(255, 0, 0, 0.829);
     transition:transform 1s;
    
