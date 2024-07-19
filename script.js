@@ -12,6 +12,7 @@ let currentcounter=document.querySelector('.counter');
 let hScore=document.querySelector('.hScore');
 let gHist=document.querySelector('.gHist');
 let gHistArray=[];
+let scorearray=[];
 // let background=document.querySelector('.bodymod');
 
 // Images
@@ -44,6 +45,14 @@ function guessing(){
             // needed 'return;' statement since directly accessing info.
         }
 
+        // to avoid multiple occurancee of same numbers
+        for (let i = 0; i < gHistArray.length; i++) { 
+            if (gHistArray[i] === guess.value) {
+                msg.textContent = "You have already guessed that number. Please try a different number.";
+                return;
+            }
+        }
+
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
@@ -66,11 +75,14 @@ function guessing(){
             // msg.textContent= "Congratulations, you guessed correctly!";
             gBtn.hidden = true;
             guess.hidden=true;
-            highscore=highscore+1;
+            // highscore=highscore+1;
+            highscore=10-(counter-1);  //change
             hScore.textContent=String(highscore);
             cBtn.hidden=false;
             winner.hidden=false;
             thinking.hidden=true;
+            // scorearray.push(highscore); 
+            scorearray.push(highscore); //change
             msg.textContent = `Congratulations!
             Your guess was correct: ${guess.value} is my secret number`;
             msg.style.color='gold';
@@ -96,7 +108,33 @@ function guessing(){
         gHistArray.push(guess.value);
         gHist.textContent=gHistArray.join(', ');
         console.log(gHistArray);
+        updateHistory();
     }        
+
+
+ //to update the high score after each game(change)
+        if (counter>0){
+            function updatehighscore() {
+                for (let i = 0; i < scorearray.length; i++) {
+                      if(scorearray[i]<scorearray[i+1]){
+                        highscore=scorearray[i];
+                        console.log('inside update score');
+                      }
+                      else{
+                        highscore=scorearray[i+1];
+                      }}}
+         }
+    }   
+
+ // to clear the history table each time we reset the game(change)
+    function updateHistory() {
+        gHist.innerHTML = ''; // Clear current list
+        for (let i = 0; i < gHistArray.length; i++) {
+             const listItem = document.createElement('li');
+             listItem.textContent = `${i+1}: ${gHistArray[i]}`;
+             gHist.appendChild(listItem);
+         }
+    }
        
 
 // Continue Button:
@@ -106,6 +144,8 @@ cBtn.addEventListener('click', continuing);
             cBtn.hidden=true;
             gBtn.hidden=false; 
             guess.hidden=false;
+            counter=10;
+            hScore.textContent=String(highscore);
             num=Math.trunc(Math.random()*100)+1;
             console.log(num);
             winner.hidden=true;
@@ -113,7 +153,10 @@ cBtn.addEventListener('click', continuing);
             gameover.hidden=true;
             msg.textContent='Ready';
             msg.style.color="";
+            gHistArray.length=0;
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
+            updateHistory();//clearing the history table //change
+            guess.value='';//clearing the input field  //change
         }
 
 
@@ -121,7 +164,7 @@ cBtn.addEventListener('click', continuing);
 
 rBtn.addEventListener('click', resetting)
         function resetting(){
-            highscore=0;
+            //highscore=0; change
             counter=10;
             hScore.textContent=String(highscore);
             currentcounter.textContent=String(counter);
@@ -139,6 +182,8 @@ rBtn.addEventListener('click', resetting)
             msg.style.color="";
             document.body.style.filter="invert(0%)";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
+            updateHistory();//clearing the history table //change
+            guess.value='';//clearing the input field  //change
         }
 
 
