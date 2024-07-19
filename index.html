@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guessing Number Game!</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
+
+<style>
+    body {background-image:url(./images/numbersdrawing.jpg);
+
+
+}
+</style>
+<body class="body">
+    
     
     <div class="h1box">
         <h1>Number guessing game!</h1>
@@ -28,14 +36,19 @@
     <br>
     
     <div class="gamebox">
+        <img class="gameover" src="images/gameover.png" height="300px">
+        <img class="winner" src="images/Winner.png" height="100px" >
+        <img class="thinking" src="images/thinking.png" height="100px">
         <div class="guessarea">
                 <input class="guess" type="text" name="guessme" placeholder="Input guess # here">
+                
                 <br>
                 <br>
                 <button class="gBtn" name="checkresults">Guess</button>
-            
+                <button class="cBtn" name="continue">Continue</button>
             <br>
             <h6 class="msg">Ready</h6>
+
         </div>
         
     </div>
@@ -45,13 +58,13 @@
         <p>Previous Guesses:</p>
         <br>
         <!-- Put previous guesses in JS below this line -->
-        <p class="previousGuessA"></p>
+        <p class="gHist"></p>
 
 
     </div>
 </div>
     <div class="resetme">
-        <button class="resetbtn">Reset</button>
+        <button class="rBtn">Reset</button>
     </div>
     
     <script src="test.js"></script>

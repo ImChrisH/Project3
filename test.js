@@ -5,30 +5,56 @@ let highscore=0;
 let num=Math.trunc(Math.random()*100)+1;
 let msg=document.querySelector('.msg');
 let guess=document.querySelector('.guess');
-let gBtn=document.querySelector('.gBtn');
+
 let currentcounter=document.querySelector('.counter');
-// let imageshown= "gameover.jpg";
 let hScore=document.querySelector('.hScore');
+let gHist=document.querySelector('.gHist');
+let gHistArray=[];
+
+// Images
+let winner=document.querySelector('.winner');
+let thinking=document.querySelector('.thinking');
+let gameover=document.querySelector('.gameover');
+
+// Buttons
+let cBtn=document.querySelector('.cBtn');
+let gBtn=document.querySelector('.gBtn');
+let rBtn=document.querySelector('.rBtn');
+
+let inputCheck=Number.isInteger();
+let bodyback= document.querySelector('body');
+
+cBtn.hidden=true;
+winner.hidden=true;
+gameover.hidden=true;
 
 
-// Previous guess testing
-// let prevGuessA=document.querySelector('.prevGuessA');
-// let prevGuessArray=new Array[0];
 
 gBtn.addEventListener('click', guessing);
 
 function guessing(){
+    gHistArray.push(guess.value);
+
+    gHist.textContent=gHistArray.join(', ');
+    console.log(gHistArray);
+
+
         if(guess.value>100 || guess.value<1){
             msg.textContent= "Only numbers from 1 to 100!";
             return;
             // need 'return;' statement since directly accessing info.
         }
+        // if(Number.isInteger(guess.value)=false){
+
+        //     msg.textContent="Only numbers from 1 to 100!"
+        //     return;
+        // }
+
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too High!";
-            // prevGuessArray.push(guess.value);
-            // guess.value=''
+           
             
         
     }
@@ -38,41 +64,76 @@ function guessing(){
             msg.textContent= "Wrong! Too Low!";
             msg.style.color='red';
             msg.style.fontWeight='bold'; 
-            // prevGuessArray.push(guess.value);
-            // previousGuessA.textContent=String(previousGuessArray);
+            
             
            
         }
 
         else if (guess.value==num){
             msg.textContent= "Congratulations, you guessed correctly!";
-            gBtn.disabled = true;
+            gBtn.hidden = true;
+            guess.hidden=true;
             highscore=highscore+1;
             hScore.textContent=String(highscore);
+            cBtn.hidden=false;
+            winner.hidden=false;
+            thinking.hidden=true;
 
-            // prevGuessArray.push(guess.value);
-            // guess.value='';
         }
-
-        // else if(guess.value>100 || guess.value<1){
-        //     msg.textContent= "Only numbers from 1 to 100!";
-        // }
-
-        // else if(guess.value <1){
-        //     msg.textContent= "Only numbers from 1 to 100!";
-        // }
 
         if(counter<=0){
-            msg.textContent="GAME OVER";
-            msg.style.fontSize="x-large";
-            gBtn.disabled = true;
+
+            // msg.textContent="Please try again!";
+            // msg.style.fontSize="x-large";
+            // gBtn.disabled = true;
+            thinking.hidden=true;
+            guess.hidden=true;
+            gBtn.hidden=true;
+            gameover.hidden=false;
+            document.body.style.filter="invert(100%)";
+            // document.bodyback.style.filter="invert(100%)";
+            msg.hidden=true;
+            // changeBackgroundImage(URL/)
+
         }
-            
+    }        
        
+cBtn.addEventListener('click', continuing);        
+        function continuing(){
+            cBtn.hidden=true;
+            gBtn.hidden=false; 
+            guess.hidden=false;
+            num=Math.trunc(Math.random()*100)+1;
+            console.log(num);
+            winner.hidden=true;
+            thinking.hidden=false;
+            gameover.hidden=true;
+
+    }
+
+rBtn.addEventListener('click', resetting)
+        function resetting(){
+            highscore=0;
+            counter=10;
+            hScore.textContent=String(highscore);
+            currentcounter.textContent=String(counter);
+            num=Math.trunc(Math.random()*100)+1;
+            console.log(num);
+            winner.hidden=true;
+            thinking.hidden=false;
+            gameover.hidden=true;
+            cBtn.hidden=true;
+            gBtn.hidden=false; 
+            guess.hidden=false;
+            gHistArray.length=0;
+            msg.hidden=false;
+            msg.textContent= "Ready";
+            msg.style.color="blue";
+            document.body.style.filter="invert(0%)";
+            // document.bodyback.style.filter="invert(0)";
+        }
 
 
-
-}
 
 console.log(num);
 
