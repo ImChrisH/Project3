@@ -129,7 +129,7 @@ p {text-align: center;}
 
 /* Buttons and their properties */
 
-
+/* Continue Button */
 .cBtn {
     border-radius: 20px;
     height:40px;
@@ -138,6 +138,9 @@ p {text-align: center;}
     color: rgb(251, 251, 251);
     
 }
+
+/* Guess Button */
+
 .gBtn{
     border-radius: 20px;
     height:40px;
@@ -156,6 +159,8 @@ p {text-align: center;}
 .gBtn:active{
     transform:rotate(360deg);
 }
+
+/* Reset Button */
 
 .rBtn{
     margin-bottom: 2%;
