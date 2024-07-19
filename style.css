@@ -67,13 +67,6 @@ p {text-align: center;}
 
 }
 
-/* change */
-.gHist {
-    list-style-type: none; 
-    padding: 0;
-    text-align: center;
-}
-
 .gHist{
     padding:3%;
 }
@@ -110,9 +103,9 @@ p {text-align: center;}
     margin-bottom: 3%;
 }
 
-/* #pGuessTitle{
+#pGuessTitle{
     font-weight: bold;
-} */
+}
 
 .status {
     margin: auto;
