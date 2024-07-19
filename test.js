@@ -33,16 +33,11 @@ gameover.hidden=true;
 gBtn.addEventListener('click', guessing);
 
 function guessing(){
-    gHistArray.push(guess.value);
-
-    gHist.textContent=gHistArray.join(', ');
-    console.log(gHistArray);
-
 
         if(guess.value>100 || guess.value<1){
             msg.textContent= "Only numbers from 1 to 100!";
             return;
-            // need 'return;' statement since directly accessing info.
+            // needed 'return;' statement since directly accessing info.
         }
         // if(Number.isInteger(guess.value)=false){
 
@@ -96,6 +91,12 @@ function guessing(){
             // changeBackgroundImage(URL/)
 
         }
+
+        // Array
+
+        gHistArray.push(guess.value);
+        gHist.textContent=gHistArray.join(', ');
+        console.log(gHistArray);
     }        
        
 cBtn.addEventListener('click', continuing);        
