@@ -81,7 +81,7 @@ function guessing(){
             cBtn.hidden=false;
             winner.hidden=false;
             thinking.hidden=true;
-            scorearray.push(highscore); 
+            // scorearray.push(highscore); 
             scorearray.push(highscore); //change
             msg.textContent = `Congratulations!
             Your guess was correct: ${guess.value} is my secret number`;
