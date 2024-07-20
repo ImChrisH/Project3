@@ -79,8 +79,6 @@ function guessing(){
             cBtn.hidden=false;
             winner.hidden=false;
             thinking.hidden=true;
-            // scorearray.push(highscore); 
-            scorearray.push(highscore); //change
             msg.textContent = `Congratulations!
             Your guess was correct: ${guess.value} is my secret number`;
             msg.style.color='gold';
@@ -104,22 +102,20 @@ function guessing(){
         // Array must be after conditionals:
 
         gHistArray.push(guess.value);
-        gHist.textContent=gHistArray.join(', ');
+        // gHist.textContent=gHistArray.join(', ');
         console.log(gHistArray);
         updateHistory();
     }        
-
-
- // to clear the history table each time we reset the game(change)
-    function updateHistory() {
+  
+function updateHistory() {
         gHist.innerHTML = ''; // Clear current list
         for (let i = 0; i < gHistArray.length; i++) {
              const listItem = document.createElement('li');
+             // listItem.textContent = `${gHistArray[i]}`;
              listItem.textContent = ` ${gHistArray[i]}`;
              gHist.appendChild(listItem);
          }
-    }
-       
+    }     
 
 // Continue Button:
 
@@ -128,8 +124,6 @@ cBtn.addEventListener('click', continuing);
             cBtn.hidden=true;
             gBtn.hidden=false; 
             guess.hidden=false;
-            counter=10;
-            hScore.textContent=String(highscore);
             num=Math.trunc(Math.random()*100)+1;
             console.log(num);
             winner.hidden=true;
@@ -137,10 +131,10 @@ cBtn.addEventListener('click', continuing);
             gameover.hidden=true;
             msg.textContent='Ready';
             msg.style.color="";
-            gHistArray.length=0;
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
-            updateHistory();//clearing the history table //change
+        updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
+
         }
 
 
@@ -148,7 +142,7 @@ cBtn.addEventListener('click', continuing);
 
 rBtn.addEventListener('click', resetting)
         function resetting(){
-            //highscore=0; change
+            highscore=0;
             counter=10;
             hScore.textContent=String(highscore);
             currentcounter.textContent=String(counter);
@@ -166,12 +160,10 @@ rBtn.addEventListener('click', resetting)
             msg.style.color="";
             document.body.style.filter="invert(0%)";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
-            updateHistory();//clearing the history table //change
+        updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
         }
 
 
 
 console.log(num);
-
-
