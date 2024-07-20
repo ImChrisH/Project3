@@ -67,8 +67,11 @@ p {text-align: center;}
 
 }
 
-.gHist{
-    padding:3%;
+
+.gHist {
+    list-style-type: none; 
+    padding: 0;
+    text-align: center;
 }
 
 .guessarea{
