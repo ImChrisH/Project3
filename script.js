@@ -159,7 +159,7 @@ rBtn.addEventListener('click', resetting)
         updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
 
-
+ }
 
 
 console.log(num);
