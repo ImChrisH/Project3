@@ -96,6 +96,7 @@ function guessing(){
         gHistArray.push(guess.value);
         // gHist.textContent=gHistArray.join(', ');
         console.log(gHistArray);
+        updateHistory();
     }        
 
   
