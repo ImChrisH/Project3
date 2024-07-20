@@ -75,8 +75,7 @@ function guessing(){
             // msg.textContent= "Congratulations, you guessed correctly!";
             gBtn.hidden = true;
             guess.hidden=true;
-            // highscore=highscore+1;
-            highscore=10-(counter-1);  //change
+            highscore=highscore+1;
             hScore.textContent=String(highscore);
             cBtn.hidden=false;
             winner.hidden=false;
