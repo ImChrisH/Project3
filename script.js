@@ -112,26 +112,12 @@ function guessing(){
     }        
 
 
- //to update the high score after each game(change)
-        if (counter>0){
-            function updatehighscore() {
-                for (let i = 0; i < scorearray.length; i++) {
-                      if(scorearray[i]<scorearray[i+1]){
-                        highscore=scorearray[i];
-                        console.log('inside update score');
-                      }
-                      else{
-                        highscore=scorearray[i+1];
-                      }}}
-         }
-    }   
-
  // to clear the history table each time we reset the game(change)
     function updateHistory() {
         gHist.innerHTML = ''; // Clear current list
         for (let i = 0; i < gHistArray.length; i++) {
              const listItem = document.createElement('li');
-             listItem.textContent = `${i+1}: ${gHistArray[i]}`;
+             listItem.textContent = ` ${gHistArray[i]}`;
              gHist.appendChild(listItem);
          }
     }
