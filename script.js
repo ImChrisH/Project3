@@ -44,14 +44,6 @@ function guessing(){
             // needed 'return;' statement since directly accessing info.
         }
 
-        // to avoid multiple occurancee of same numbers
-        for (let i = 0; i < gHistArray.length; i++) { 
-            if (gHistArray[i] === guess.value) {
-                msg.textContent = "You have already guessed that number. Please try a different number.";
-                return;
-            }
-        }
-
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
@@ -104,8 +96,8 @@ function guessing(){
         gHistArray.push(guess.value);
         // gHist.textContent=gHistArray.join(', ');
         console.log(gHistArray);
-        updateHistory();
     }        
+
   
 function updateHistory() {
         gHist.innerHTML = ''; // Clear current list
@@ -116,6 +108,7 @@ function updateHistory() {
              gHist.appendChild(listItem);
          }
     }     
+
 
 // Continue Button:
 
@@ -132,8 +125,10 @@ cBtn.addEventListener('click', continuing);
             msg.textContent='Ready';
             msg.style.color="";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
+
         updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
+
 
         }
 
@@ -160,9 +155,10 @@ rBtn.addEventListener('click', resetting)
             msg.style.color="";
             document.body.style.filter="invert(0%)";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
+
         updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
-        }
+
 
 
 
