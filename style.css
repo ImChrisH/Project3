@@ -67,15 +67,10 @@ p {text-align: center;}
 
 }
 
-/* change */
 .gHist {
     list-style-type: none; 
     padding: 0;
     text-align: center;
-}
-
-.gHist{
-    padding:3%;
 }
 
 .guessarea{
