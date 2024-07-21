@@ -1,7 +1,5 @@
 // console.log("hi");
 
-//
-
 let counter=10;
 let highscore=0;
 let num=Math.trunc(Math.random()*100)+1;
@@ -40,15 +38,30 @@ function guessing(){
 
         if(guess.value>100 || guess.value<1){
             msg.textContent= "Only numbers from 1 to 100!";
+            guess.value='';
+            guess.focus();//set the cursor focus on input field
             return;
             // needed 'return;' statement since directly accessing info.
         }
 
+        // to avoid multiple occurancee of same numbers
+        for (let i = 0; i < gHistArray.length; i++) { 
+            if (gHistArray[i] === guess.value) {
+                msg.textContent = "You have already guessed that number. Please try a different number.";
+                guess.value='';
+                guess.focus();//set the cursor focus on input field
+                return;
+            }
+        }
+        
         if(guess.value > num){
             counter=counter-1;
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too High!";
             msg.style.color='red';
+            gHistArray.push(guess.value);
+            guess.value='';
+            guess.focus();//set the cursor focus on input field
         }
 
         else if (guess.value < num){
@@ -56,7 +69,10 @@ function guessing(){
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too Low!";
             msg.style.color='red';
-            msg.style.fontWeight='bold'; 
+            msg.style.fontWeight='bold';
+            gHistArray.push(guess.value);
+            guess.value='';
+            guess.focus();//set the cursor focus on input field 
         }
 
 
@@ -75,7 +91,10 @@ function guessing(){
             Your guess was correct: ${guess.value} is my secret number`;
             msg.style.color='gold';
             document.body.style.backgroundImage="url(images/background/trophy.jpg)";
-
+            gHistArray.push(guess.value);
+            guess.value='';
+            guess.focus();//set the cursor focus on input field
+            
         }
 
 
@@ -91,15 +110,13 @@ function guessing(){
             document.body.style.backgroundImage="url(images/background/glitch.jpg)";
         }
 
-        // Array must be after conditionals:
-
-        gHistArray.push(guess.value);
-        // gHist.textContent=gHistArray.join(', ');
+       
         console.log(gHistArray);
         updateHistory();
-    }        
-
-  
+    }  
+    }      
+    
+    
 function updateHistory() {
         gHist.innerHTML = ''; // Clear current list
         for (let i = 0; i < gHistArray.length; i++) {
@@ -110,12 +127,12 @@ function updateHistory() {
          }
     }     
 
-
 // Continue Button:
-
 cBtn.addEventListener('click', continuing);        
         function continuing(){
             cBtn.hidden=true;
+            counter=10;
+            currentcounter.textContent=String(counter);
             gBtn.hidden=false; 
             guess.hidden=false;
             num=Math.trunc(Math.random()*100)+1;
@@ -125,12 +142,11 @@ cBtn.addEventListener('click', continuing);
             gameover.hidden=true;
             msg.textContent='Ready';
             msg.style.color="";
+            gHistArray.length=0;
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
-
-        updateHistory();//clearing the history table //change
+ 			updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
-
-
+            guess.focus();//set the cursor focus on input field
         }
 
 
@@ -156,10 +172,9 @@ rBtn.addEventListener('click', resetting)
             msg.style.color="";
             document.body.style.filter="invert(0%)";
             document.body.style.backgroundImage="url(images/background/numbersdrawing.jpg)";
-
-        updateHistory();//clearing the history table //change
+			updateHistory();//clearing the history table //change
             guess.value='';//clearing the input field  //change
-
+            guess.focus();//set the cursor focus on input field
  }
 
 
