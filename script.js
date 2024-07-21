@@ -113,7 +113,7 @@ function guessing(){
        
         console.log(gHistArray);
         updateHistory();
-}
+	// removed bracket
     }      
     
     
