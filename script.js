@@ -59,7 +59,7 @@ function guessing(){
             currentcounter.textContent=String(counter);
             msg.textContent= "Wrong! Too High!";
             msg.style.color='red';
-            //gHistArray.push(guess.value);
+            gHistArray.push(guess.value);
             guess.value='';
             guess.focus();//set the cursor focus on input field
         }
@@ -70,7 +70,7 @@ function guessing(){
             msg.textContent= "Wrong! Too Low!";
             msg.style.color='red';
             msg.style.fontWeight='bold';
-           // gHistArray.push(guess.value);
+            gHistArray.push(guess.value);
             guess.value='';
             guess.focus();//set the cursor focus on input field 
         }
@@ -91,7 +91,7 @@ function guessing(){
             Your guess was correct: ${guess.value} is my secret number`;
             msg.style.color='gold';
             document.body.style.backgroundImage="url(images/background/trophy.jpg)";
-            //gHistArray.push(guess.value);
+            gHistArray.push(guess.value);
             guess.value='';
             guess.focus();//set the cursor focus on input field
             
@@ -114,6 +114,9 @@ function guessing(){
         console.log(gHistArray);
         updateHistory();
     }  
+    }      
+    
+    
 function updateHistory() {
         gHist.innerHTML = ''; // Clear current list
         for (let i = 0; i < gHistArray.length; i++) {
